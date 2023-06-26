@@ -1,12 +1,20 @@
 var currentSlide = 0
 
+var nextSlide = function () {
+    currentSlide = currentSlide + 1
+    var leftPosition = (-currentSlide * 100) + 'vw'
+    $('.holder').css('left', leftPosition)
+}
+
+var prevSlide = function () {
+    currentSlide = currentSlide - 1
+    var leftPosition = (-currentSlide * 100) + 'vw'
+    $('.holder').css('left', leftPosition)
+}
+
 setInterval(function () {
 
-    currentSlide = currentSlide + 1
-    var vwUnit = -currentSlide * 100
-    var leftPosition = vwUnit + 'vw'
-
-    $('.holder').css('left', leftPosition)
+    nextSlide()
 
 }, 3000)
 
