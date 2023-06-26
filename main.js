@@ -5,12 +5,18 @@ var nextSlide = function () {
     currentSlide = currentSlide + 1
     var leftPosition = (-currentSlide * 100) + 'vw'
     $('.holder').css('left', leftPosition)
+
+    var slideNum = currentSlide + 1
+    $('.steps').text(slideNum + ' / ' + totalSlides)
 }
 
 var prevSlide = function () {
     currentSlide = currentSlide - 1
     var leftPosition = (-currentSlide * 100) + 'vw'
     $('.holder').css('left', leftPosition)
+
+    var slideNum = currentSlide + 1
+    $('.steps').text(slideNum + ' / ' + totalSlides)
 }
 
 var autoSlide = setInterval(function () {
@@ -29,3 +35,6 @@ $('.prev').on('click', function () {
     prevSlide()
 })
 
+var slideNum = currentSlide + 1
+
+$('.steps').text(slideNum + ' / ' + totalSlides)
