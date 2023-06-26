@@ -1,4 +1,5 @@
 var currentSlide = 0
+var totalSlides = $('.holder div').length
 
 var nextSlide = function () {
     currentSlide = currentSlide + 1
