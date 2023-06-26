@@ -1,16 +1,21 @@
 var currentSlide = 0
 var totalSlides = $('.holder div').length
 
+var moveSlide = function (slide) {
+    var leftPosition = (-slide * 100) + 'vw'
+    $('.holder').css('left', leftPosition)
+
+    var slideNum = slide + 1
+    $('.steps').text(slideNum + ' / ' + totalSlides)
+}
+
 var nextSlide = function () {
     currentSlide = currentSlide + 1
     if (currentSlide >= totalSlides) {
         currentSlide = 0
     }
-    var leftPosition = (-currentSlide * 100) + 'vw'
-    $('.holder').css('left', leftPosition)
 
-    var slideNum = currentSlide + 1
-    $('.steps').text(slideNum + ' / ' + totalSlides)
+    moveSlide(currentSlide)
 }
 
 var prevSlide = function () {
@@ -18,11 +23,8 @@ var prevSlide = function () {
     if (currentSlide < 0) {
         currentSlide = totalSlides - 1
     }
-    var leftPosition = (-currentSlide * 100) + 'vw'
-    $('.holder').css('left', leftPosition)
 
-    var slideNum = currentSlide + 1
-    $('.steps').text(slideNum + ' / ' + totalSlides)
+    moveSlide(currentSlide)
 }
 
 var autoSlide = setInterval(function () {
