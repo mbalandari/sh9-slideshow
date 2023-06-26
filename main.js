@@ -45,3 +45,15 @@ $('.prev').on('click', function () {
 
 var slideNum = currentSlide + 1
 $('.steps').text(slideNum + ' / ' + totalSlides)
+
+$('body').on('keydown', function (event) {
+    var keyCode = event.keyCode
+    if (keyCode == 37) {
+        clearInterval(autoSlide)
+        prevSlide()
+    }
+    else if (keyCode == 39) {
+        clearInterval(autoSlide)
+        nextSlide()
+    }
+})
