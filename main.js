@@ -13,9 +13,19 @@ var prevSlide = function () {
     $('.holder').css('left', leftPosition)
 }
 
-setInterval(function () {
+var autoSlide = setInterval(function () {
 
     nextSlide()
 
 }, 3000)
+
+$('.next').on('click', function () {
+    clearInterval(autoSlide)
+    nextSlide()
+})
+
+$('.prev').on('click', function () {
+    clearInterval(autoSlide)
+    prevSlide()
+})
 
